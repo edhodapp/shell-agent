@@ -1,0 +1,30 @@
+name: Shell Gates
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  shell-gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install shellcheck and shfmt
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y shellcheck
+          curl -fsSL https://github.com/mvdan/sh/releases/download/v3.7.0/shfmt_v3.7.0_linux_amd64 -o /tmp/shfmt
+          sudo install -m 0755 /tmp/shfmt /usr/local/bin/shfmt
+      - name: Find shell scripts
+        id: find
+        run: |
+          files=$(find . -type f -name '*.sh' -not -path './.git/*' -not -path './.venv/*' | tr '\n' ' ')
+          echo "files=$files" >> "$GITHUB_OUTPUT"
+      - name: shellcheck (dialect auto-detected from shebang)
+        if: steps.find.outputs.files != ''
+        run: shellcheck ${{ steps.find.outputs.files }}
+      - name: shfmt diff check (dialect auto-detected from shebang)
+        if: steps.find.outputs.files != ''
+        run: shfmt -d ${{ steps.find.outputs.files }}
