@@ -7,7 +7,7 @@ name = "aofire-shell-agent"
 version = "0.0.1"
 description = "Claude-powered shell script coding agent with POSIX sh defaults and shellcheck/shfmt gates"
 requires-python = ">=3.11"
-license = "BSD-3-Clause"
+license = "AGPL-3.0-or-later"
 authors = [
     {name = "Ed Hodapp", email = "ed@hodapp.com"},
 ]

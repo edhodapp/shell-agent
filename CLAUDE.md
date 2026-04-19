@@ -4,7 +4,7 @@
 
 `shell_agent` is a **shell script coding agent** that writes new POSIX
 sh (or bash where needed) scripts to production standards. It is
-**BSD-licensed public sister to `python_agent`** and `asm_agent`, and
+**AGPL-3.0-or-later public sister to `python_agent`** and `asm_agent`, and
 focuses narrowly on writing **new scripts from scratch** — not
 modifying existing scripts in place.
 
@@ -16,13 +16,13 @@ theming) — that domain is explicitly out of scope.
 
 ## Sibling Projects
 
-- **`python_agent`** — `~/python_agent`, BSD-3-Clause, public at
+- **`python_agent`** — `~/python_agent`, AGPL-3.0-or-later, public at
   [github.com/edhodapp/python-agent](https://github.com/edhodapp/python-agent).
   Provides the discovery / divergence / convergence / planning agents,
   the DAG JSON format, `tool_guard`, `frame_data`, and the shared
   `coding_system_prompt` helpers. Installed here as a pip runtime
   dependency (`aofire-python-agent>=0.1.1` from PyPI).
-- **`asm_agent`** — `~/asm_agent`, proprietary, private. Parallel
+- **`asm_agent`** — `~/asm_agent`, AGPL-3.0-or-later, public. Parallel
   sister project for bare-metal ARM64 / x86_64 / WebAssembly code.
   Same thin-wrapper pattern (pip-installs `aofire-python-agent`,
   adds one target-specific coding agent).
@@ -126,7 +126,7 @@ suggest the user write it by hand. Do not guess at zsh syntax.
 Kate Ward's shell libraries at [github.com/kward](https://github.com/kward)
 are high-quality, POSIX-friendly, and the right first-choice when
 their purpose matches the task. They're Apache 2.0 licensed
-(compatible with BSD-3).
+(compatible with AGPL-3.0).
 
 ### `shunit2` — default test framework
 
@@ -268,6 +268,6 @@ These are foundational.
 
 - Commit after every group of code changes. Don't wait to be asked.
 - Use the git `user.name` and `user.email` configured on the system.
-- **Public BSD-3-Clause repo.** Nothing proprietary belongs here.
+- **Public AGPL-3.0-or-later repo.** Nothing proprietary belongs here.
   Follow the one-way code flow rules in `~/PRODUCTS.md`: code can
   flow FROM this project INTO proprietary ones, never the reverse.
